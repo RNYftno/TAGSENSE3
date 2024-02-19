@@ -82,9 +82,23 @@
             right: 20px;
         }
         .image-container {
-            max-width: 100%;
-            height: auto;
-            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            color: #ff0000;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -97,15 +111,6 @@
         <div class="column">
             <ul>
              <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Todas Demandas do BSS</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Todos os tipos de bloqueios</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Todas Contestações em Geral</a></li>
-                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Todas Demandas do BSS</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Todos os tipos de bloqueios</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Todas Contestações em Geral</a></li>
-                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Todas Demandas do BSS</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Todos os tipos de bloqueios</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Todas Contestações em Geral</a></li>
-                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Todas Demandas do BSS</a></li>
                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Todos os tipos de bloqueios</a></li>
                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Todas Contestações em Geral</a></li>
                 <!-- Adicione links e imagens para os outros itens conforme necessário -->
@@ -122,7 +127,12 @@
     <script>
         function displayImage(imageSrc) {
             var imageContainer = document.getElementById('image-container');
-            imageContainer.innerHTML = '<img src="' + imageSrc + '" alt="Imagem" style="max-width: 100%; max-height: 500px;">'; // Defina a largura máxima e a altura máxima desejadas
+            imageContainer.innerHTML = '<span class="close-btn" onclick="closeImage()">X</span><img src="' + imageSrc + '" alt="Imagem" style="max-width: 100%; max-height: 300px;">'; // Defina a largura máxima e a altura máxima desejadas
+        }
+
+        function closeImage() {
+            var imageContainer = document.getElementById('image-container');
+            imageContainer.innerHTML = '';
         }
     </script>
 </body>
