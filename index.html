@@ -14,6 +14,7 @@
             background-color: #f8f8f8;
             margin: 0;
             padding: 0;
+            position: relative; /* Garante que o posicionamento relativo funcione corretamente */
         }
         header {
             background-color: #005ca9;
@@ -81,24 +82,24 @@
             top: 20px;
             right: 20px;
         }
-        .image-container {
+        /* Estilos para a sobreposição da imagem */
+        .overlay {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente */
+            display: none; /* Inicialmente oculto */
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Para garantir que a sobreposição esteja sempre no topo */
         }
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            cursor: pointer;
-            color: #ff0000;
-            font-size: 24px;
+        .overlay img {
+            max-width: 80%; /* Defina o tamanho máximo da imagem conforme necessário */
+            max-height: 80vh; /* Defina a altura máxima da imagem conforme necessário */
+            border: 2px solid #fff; /* Borda branca ao redor da imagem */
+            border-radius: 8px; /* Borda arredondada */
         }
     </style>
 </head>
@@ -110,7 +111,7 @@
         <img class="image-top-right" src="https://www.freepnglogos.com/uploads/logo-caixa-png/caixa-download-png-5.png" alt="Caixa Logo" width="100">
         <div class="column">
             <ul>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Todas Demandas do BSS</a></li>
+             <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Todas Demandas do BSS</a></li>
                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Todos os tipos de bloqueios</a></li>
                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Todas Contestações em Geral</a></li>
                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Todas Demandas do BSS</a></li>
@@ -120,6 +121,7 @@
                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Todos os tipos de bloqueios</a></li>
                 <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Todas Contestações em Geral</a></li>
                 <!-- Adicione links e imagens para os outros itens conforme necessário -->
+                <!-- Adicione links e imagens para os outros itens conforme necessário -->
             </ul>
         </div>
         <!-- Adicione mais colunas conforme necessário -->
@@ -128,17 +130,22 @@
         <p>"Apenas sendo testado no momento, quando você menos esperar eu serei um site grande"</p>
     </footer>
 
-    <div class="image-container" id="image-container"></div>
+    <!-- Sobreposição da imagem -->
+    <div class="overlay" id="overlay" onclick="hideImage()">
+        <img id="overlay-image" src="" alt="Imagem">
+    </div>
 
     <script>
         function displayImage(imageSrc) {
-            var imageContainer = document.getElementById('image-container');
-            imageContainer.innerHTML = '<span class="close-btn" onclick="closeImage()">X</span><img src="' + imageSrc + '" alt="Imagem" style="max-width: 100%; max-height: 600px;">'; // Defina a largura máxima e a altura máxima desejadas
+            var overlay = document.getElementById('overlay');
+            var overlayImage = document.getElementById('overlay-image');
+            overlayImage.src = imageSrc;
+            overlay.style.display = 'flex'; // Exibe a sobreposição
         }
 
-        function closeImage() {
-            var imageContainer = document.getElementById('image-container');
-            imageContainer.innerHTML = '';
+        function hideImage() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'none'; // Oculta a sobreposição ao clicar nela
         }
     </script>
 </body>
