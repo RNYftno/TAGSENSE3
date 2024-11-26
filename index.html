@@ -1,172 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TagSense</title>
-    <link rel="icon" href="https://www.freepnglogos.com/uploads/logo-caixa-png/caixa-download-png-5.png" type="image/x-icon">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            min-height: 100vh; /* Faz com que o corpo tenha pelo menos a altura da janela do navegador */
-        }
-        header {
-            background-color: #005ca9;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 36px;
-            margin: 0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            margin-bottom: 40px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-       .column {
-            flex: 1;
-            margin: 10px;
-            background-color: #fa6705;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-basis: calc(22% - 45px);
-        }
-        .column ul {
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-            text-align: center;
-            padding: 20px;
-        }
-        .column ul li {
-            margin-bottom: 10px;
-        }
-        .column ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-        .column ul li a:hover {
-            text-decoration: underline;
-        }
-        .column ul li a:hover {
-            color: #005ca9;
-            text-decoration: underline;
-        }
-        footer {
-            background-color: #005ca9;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-        .image-top-right {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-        .overlay img {
-            max-width: 80%;
-            max-height: 80vh;
-            border: 2px solid #fff;
-            border-radius: 8px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garantia de Moradia para Médicos Residentes</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Bem-vindo ao TagSense</h1>
-    </header>
-    <div class="container">
-        <img class="image-top-right" src="https://www.freepnglogos.com/uploads/logo-caixa-png/caixa-download-png-5.png" alt="Caixa Logo" width="100">
-        <div class="column">
-            <ul>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Autorizar Debito Caixa</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Autorizar Debito Itau</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Autorizar Debito Santander</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Autorizar Debito Banco do Brasil</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Exemplo Contestação Taxa Generica</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Exemplo Contestação Transação Generica</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Exemplo Contestação de pagamento em duplicidade</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Como solicitar Aumento Limite do Drive-Thru (+ e - que 90 dias)</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Exemplo abertura de Registro</a></li>
-                <!-- Adicione links e imagens para os outros itens conforme necessário -->
-            </ul>
-        </div>
-      <div class="column">
-            <ul>
-                  <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Autorizar Debito Caixa</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Autorizar Debito Itau</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Autorizar Debito Santander</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Autorizar Debito Banco do Brasil</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Exemplo Contestação Taxa Generica</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Exemplo Contestação Transação Generica</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Exemplo Contestação de pagamento em duplicidade</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Como solicitar Aumento Limite do Drive-Thru (+ e - que 90 dias)</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Exemplo abertura de Registro</a></li>
-    </div>
- <div class="column">
-            <ul>
-                   <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Autorizar Debito Caixa</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Autorizar Debito Itau</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Autorizar Debito Santander</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Autorizar Debito Banco do Brasil</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Exemplo Contestação Taxa Generica</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Exemplo Contestação Transação Generica</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/b2ap3_thumbnail_Galeria-Ita-1.jpg')">Exemplo Contestação de pagamento em duplicidade</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-2.png')">Como solicitar Aumento Limite do Drive-Thru (+ e - que 90 dias)</a></li>
-                <li><a href="#" onclick="displayImage('https://atento.edusense.com.br/semparar/images/easyblog_articles/1537/Galeria-Ita-3.png')">Exemplo abertura de Registro</a></li>
-    <footer>
-        <p>"Apenas sendo testado no momento, quando você menos esperar eu serei um site grande"</p>
-    </footer>
+  <header class="header">
+    <h1>Garantia de Moradia para Médicos Residentes</h1>
+    <p>Lei nº 6.932, de 7 de julho de 1981</p>
+  </header>
 
-    <div class="overlay" id="overlay" onclick="hideImage()">
-        <img id="overlay-image" src="" alt="Imagem">
-    </div>
+  <main>
+    <section class="intro">
+      <h2>Você sabia?</h2>
+      <p>Conforme a Lei nº 6.932, artigo 4º, § 5º, inciso III, é seu direito receber moradia durante a residência.</p>
+    </section>
 
-    <script>
-        function displayImage(imageSrc) {
-            var overlay = document.getElementById('overlay');
-            var overlayImage = document.getElementById('overlay-image');
-            overlayImage.src = imageSrc;
-            overlay.style.display = 'flex';
-        }
+    <section class="benefits">
+      <h2>Benefícios Essenciais</h2>
+      <p>
+        🌟 Moradia ou compensação financeira equivalente a 30% de todos os valores recebidos durante a residência.
+      </p>
+    </section>
 
-        function hideImage() {
-            var overlay = document.getElementById('overlay');
-            overlay.style.display = 'none';
-        }
-    </script>
+    <section class="guarantee">
+      <h2>Sem Riscos Financeiros</h2>
+      <p>
+        🔒 Nosso trabalho é fundamentado na garantia de que você não terá qualquer risco financeiro.
+      </p>
+    </section>
+
+    <section class="details">
+      <h2>Ação Discreta e Efetiva</h2>
+      <p>🤝 As ações são direcionadas ao Município, Estado ou União, sem envolver a instituição diretamente.</p>
+    </section>
+
+    <section class="prescription">
+      <h2>Prazo Prescricional</h2>
+      <p>⏳ A ação pode ser ajuizada tanto por quem está fazendo a residência quanto por quem já a concluiu, respeitando o prazo de 5 anos.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <h3>Garanta seus Direitos Agora</h3>
+    <p>Clique no botão abaixo para preencher seus dados e iniciar o processo.</p>
+    <a href="https://forms.gle/EXEMPLO" target="_blank" class="button">Preencher Formulário</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
